@@ -2,68 +2,85 @@
 
 ![SQL](https://img.shields.io/badge/SQL-SQL%20Server-blue)
 ![Database](https://img.shields.io/badge/Database-Star%20Schema-orange)
-![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
+![Project](https://img.shields.io/badge/Project-Completed-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
+An end-to-end **SQL Data Analytics Project** that transforms raw Swiggy food delivery data into meaningful business insights using **Data Cleaning, Star Schema Modelling, Data Warehousing concepts, and SQL-based Business Analysis**.
 
 ---
 
 # 📌 Project Overview
 
-This project demonstrates a complete **SQL Data Analytics Pipeline** using a Swiggy food delivery dataset.
+Food delivery platforms generate large volumes of transactional data every day. Extracting valuable insights from this data requires proper cleaning, modelling, and analysis.
 
-The objective is to transform raw transactional food delivery data into a structured analytical database capable of answering real business questions through SQL.
+This project demonstrates a complete SQL analytics workflow by:
 
-The project follows an industry-standard workflow consisting of:
+- Cleaning and validating raw data
+- Designing a Star Schema
+- Creating Fact and Dimension tables
+- Writing business-driven SQL queries
+- Generating KPIs
+- Performing exploratory business analysis
 
-- Business Requirement Analysis
-- Data Cleaning & Validation
-- Data Warehouse Design
-- Star Schema Modelling
-- Dimension & Fact Table Creation
-- Business KPI Development
-- Exploratory Data Analysis using SQL
+Rather than querying a single raw dataset, the project converts the data into a dimensional model, making reporting faster, scalable, and easier to understand.
 
-Instead of running SQL queries directly on a single raw table, the project first converts the data into a **Star Schema**, making analytical queries faster, cleaner, and easier to maintain.
+---
+
+# ✨ Project Highlights
+
+✅ End-to-End SQL Data Analytics Project
+
+✅ Data Cleaning & Validation
+
+✅ Star Schema Data Warehouse Design
+
+✅ Fact & Dimension Table Creation
+
+✅ 20+ Business SQL Queries
+
+✅ KPI Development
+
+✅ Revenue & Customer Insights
+
+✅ SQL Server Implementation
 
 ---
 
 # 🎯 Business Problem
 
-Food delivery platforms generate millions of transactions every day.
-
-Business teams require reliable analytics to answer questions such as:
+Business stakeholders need answers to questions such as:
 
 - Which cities generate the highest revenue?
 - Which restaurants receive the highest number of orders?
-- Which food categories are most popular?
+- Which cuisines are the most popular?
 - How are sales changing month over month?
 - Which dishes are ordered most frequently?
-- What is the average customer spending?
+- What are customer spending patterns?
 - How are customer ratings distributed?
 
-This project solves these business questions using SQL.
+This project answers these questions using SQL and dimensional modelling.
 
 ---
 
 # 🏗️ Project Architecture
 
 ```
-                 Raw Dataset
-                      │
-                      ▼
-        Data Cleaning & Validation
-                      │
-                      ▼
-            Star Schema Modelling
-                      │
-                      ▼
-      Dimension & Fact Table Creation
-                      │
-                      ▼
-         Business KPI Development
-                      │
-                      ▼
-            SQL Business Analysis
+                     Raw Dataset
+                          │
+                          ▼
+            Data Cleaning & Validation
+                          │
+                          ▼
+              Star Schema Modelling
+                          │
+                          ▼
+          Fact & Dimension Table Creation
+                          │
+                          ▼
+             Business KPI Development
+                          │
+                          ▼
+               SQL Business Analysis
 ```
 
 ---
@@ -74,8 +91,8 @@ This project solves these business questions using SQL.
 |------------|---------|
 | SQL Server | Database |
 | SQL | Data Analysis |
-| Star Schema | Data Warehouse Design |
 | SSMS | Query Execution |
+| Star Schema | Data Warehouse Design |
 | ERD | Database Design |
 | Git | Version Control |
 | GitHub | Project Hosting |
@@ -84,19 +101,19 @@ This project solves these business questions using SQL.
 
 # 📂 Dataset
 
-The dataset contains food delivery transactions collected from multiple restaurants across India.
+The dataset contains Swiggy food delivery transactions across multiple Indian cities.
 
-Each record contains information including:
+### Features Included
 
 - Order ID
 - Order Date
 - State
 - City
-- Restaurant
+- Restaurant Name
 - Location
-- Category
+- Food Category
 - Dish Name
-- Price
+- Price (INR)
 - Rating
 - Rating Count
 
@@ -106,22 +123,21 @@ Each record contains information including:
 
 ```
 Swiggy-Sales-Analysis/
-
 │
 ├── Dataset/
-│      Swiggy_Data.csv
+│   └── Swiggy_Data.csv
 │
 ├── SQL Scripts/
-│      01_Data_Cleaning_and_Validation.sql
-│      02_Data_Modelling_Star_Schema.sql
-│      03_Data_Analysis.sql
+│   ├── 01_Data_Cleaning_and_Validation.sql
+│   ├── 02_Data_Modelling_Star_Schema.sql
+│   └── 03_Data_Analysis.sql
 │
 ├── Documents/
-│      Business_Requirements.pdf
-│      SQL_Analysis_Document.pdf
+│   ├── Business_Requirements.pdf
+│   └── SQL_Analysis_Document.pdf
 │
 ├── Images/
-│      ERD.png
+│   └── ERD.png
 │
 ├── README.md
 │
@@ -132,63 +148,44 @@ Swiggy-Sales-Analysis/
 
 # 🚀 Project Workflow
 
-## 1️⃣ Business Requirement Gathering
+## 1️⃣ Business Requirement Analysis
 
-Before writing SQL queries, business requirements were identified to understand what insights stakeholders expected from the data.
+Before writing SQL queries, business requirements were defined to identify the insights required by stakeholders.
 
-Requirements included:
+The requirements focused on:
 
 - Revenue Analysis
-- Order Trends
+- Sales Trends
 - Restaurant Performance
-- Cuisine Performance
 - Customer Spending
 - Ratings Analysis
-- City-wise Performance
+- Food Category Analysis
+- City & State Performance
 
 ---
 
 ## 2️⃣ Data Cleaning & Validation
 
-The raw dataset contained inconsistencies that needed to be cleaned before analysis.
+The raw dataset was validated to improve data quality.
 
-Performed:
+### Tasks Performed
 
-✔ Null Value Detection
+- Null Value Detection
+- Blank Value Detection
+- Duplicate Record Detection
+- Duplicate Removal using ROW_NUMBER()
 
-- State
-- City
-- Restaurant
-- Order Date
-- Category
-- Dish Name
-- Price
-- Rating
-- Rating Count
-
-✔ Blank Value Detection
-
-Detected empty string values.
-
-✔ Duplicate Detection
-
-Used GROUP BY to identify duplicate records.
-
-✔ Duplicate Removal
-
-Used
-
-```sql
-ROW_NUMBER()
-```
-
-to remove duplicate rows while preserving one original record.
+This ensured a clean and reliable dataset for further analysis.
 
 ---
 
-## 3️⃣ Data Warehouse Design
+## 3️⃣ Star Schema Data Modelling
 
-Instead of querying one large table, the dataset was converted into a **Star Schema**.
+A dimensional model was created to improve query performance and simplify reporting.
+
+### Fact Table
+
+- fact_swiggy_orders
 
 ### Dimension Tables
 
@@ -198,36 +195,24 @@ Instead of querying one large table, the dataset was converted into a **Star Sch
 - dim_category
 - dim_dish
 
-### Fact Table
+Benefits of the Star Schema:
 
-fact_swiggy_orders
-
-The fact table stores measurable business values while dimensions contain descriptive attributes.
-
-This improves:
-
-- Query Performance
-- Readability
-- Scalability
-- Dashboard Integration
+- Faster Queries
+- Better Scalability
+- Reduced Data Redundancy
+- Easier Dashboard Integration
 
 ---
 
 # ⭐ Star Schema
 
-> Replace the image path below with your uploaded ERD.
-
-```markdown
 ![Star Schema](Images/ERD.png)
-```
 
 ---
 
 # 📊 Business KPIs
 
-The following KPIs were developed.
-
-### Revenue KPIs
+The following KPIs were developed:
 
 - Total Orders
 - Total Revenue
@@ -238,16 +223,16 @@ The following KPIs were developed.
 
 # 📈 Business Analysis
 
-## 📅 Date Analysis
+## 📅 Date-Based Analysis
 
 - Monthly Order Trends
-- Quarterly Revenue
-- Yearly Growth
-- Day of Week Analysis
+- Quarterly Revenue Trends
+- Year-wise Growth
+- Day-of-Week Order Analysis
 
 ---
 
-## 🌍 Location Analysis
+## 🌍 Location-Based Analysis
 
 - Top 10 Cities by Orders
 - Top 10 Cities by Revenue
@@ -255,7 +240,7 @@ The following KPIs were developed.
 
 ---
 
-## 🍽 Restaurant Analysis
+## 🍽️ Restaurant & Food Analysis
 
 - Top Restaurants by Orders
 - Most Popular Categories
@@ -278,133 +263,137 @@ Customer spending buckets:
 
 ## ⭐ Ratings Analysis
 
-Distribution of ratings from
-
-- 1 Star
-- 2 Star
-- 3 Star
-- 4 Star
-- 5 Star
+Distribution of customer ratings from 1 to 5 stars.
 
 ---
 
-# 📌 SQL Concepts Used
-
-This project demonstrates practical use of:
+# 📊 Key SQL Concepts Demonstrated
 
 - SELECT
 - WHERE
-- ORDER BY
 - GROUP BY
 - HAVING
-- CASE WHEN
-- Aggregate Functions
+- ORDER BY
+- DISTINCT
 - INNER JOIN
-- Common Table Expressions (CTE)
-- Window Functions
+- Aggregate Functions
+- CASE WHEN
 - ROW_NUMBER()
-- DATE Functions
-- String Functions
+- Window Functions
+- Date Functions
 - Data Type Conversion
-- Ranking Queries
+- Common Table Expressions (CTE)
 
 ---
 
 # 💡 Business Insights Generated
 
-The project helps stakeholders answer questions like:
+This project helps answer questions such as:
 
-✔ Which city generates maximum revenue?
-
-✔ Which restaurant receives the highest number of orders?
-
-✔ Which cuisines are most preferred?
-
-✔ Which dishes are most popular?
-
-✔ Which price range contributes the highest order volume?
-
-✔ Which day receives the highest number of orders?
-
-✔ What is the overall customer satisfaction?
+- Which city generates the highest revenue?
+- Which restaurant receives the most orders?
+- Which cuisines are most preferred?
+- Which dishes are most popular?
+- Which price range contributes the highest order volume?
+- Which day receives the maximum number of orders?
+- What is the average customer rating?
 
 ---
 
-# 📚 Skills Demonstrated
+# 🧠 Skills Demonstrated
 
 - SQL Programming
 - Data Cleaning
 - Data Validation
-- Data Warehouse Design
-- Star Schema Modelling
-- Data Analysis
-- Business Intelligence
 - Database Design
+- Data Warehousing
+- Star Schema Modelling
+- Business Intelligence
+- Data Analysis
 - Query Optimization
 - Analytical Thinking
 
 ---
 
-# 📸 Sample Outputs
+# 📸 Project Preview
 
-You can add screenshots like:
+### Star Schema
 
-- KPI Results
-- Monthly Trend Output
-- Top Restaurants
-- Revenue Analysis
-- SQL Query Results
+![ERD](Images/ERD.png)
 
-Example:
-
-```
-Images/
-    KPI_TotalRevenue.png
-    MonthlyTrend.png
-    TopCities.png
-    TopRestaurants.png
-```
+> You can also add screenshots of:
+>
+> - KPI Results
+> - Monthly Trends
+> - Top Cities
+> - Top Restaurants
+> - Revenue Analysis
+> - SQL Query Outputs
 
 ---
 
-# 🎯 Future Improvements
+# 🚀 Future Improvements
 
-This project can be extended by:
+Possible enhancements:
 
-- Building an interactive Power BI Dashboard
-- Creating SQL Stored Procedures
-- Implementing Views
-- Creating Indexes for Performance Optimization
-- Automating ETL using SSIS
-- Migrating to Azure SQL Database
+- Build an interactive Power BI Dashboard
+- Create SQL Views
+- Implement Stored Procedures
+- Add Indexing for Query Optimization
+- Automate ETL Process
+- Deploy on Azure SQL Database
 
 ---
 
-# 📖 Learning Outcomes
+# 📚 Learning Outcomes
 
-Through this project I learned:
+Through this project, I gained hands-on experience in:
 
 - Designing a Star Schema
 - Building Fact & Dimension Tables
-- Cleaning raw datasets
-- Performing business-driven SQL analysis
-- Writing optimized SQL queries
+- Cleaning and Validating Data
+- Writing Business-Oriented SQL Queries
 - Developing KPIs
-- Transforming raw data into actionable business insights
+- Performing Exploratory Data Analysis
+- Converting Raw Data into Actionable Business Insights
 
 ---
 
 # 👨‍💻 Author
 
-**Gaurav Mali**
+## Gaurav Mali
 
-B.Tech Bioengineering | Aspiring Data Analyst
+**Aspiring Data Analyst | SQL | Power BI | Python**
 
-### Connect with me
+I am passionate about transforming raw data into meaningful insights through SQL, data modelling, and business intelligence. This project demonstrates my ability to design analytical databases and solve real-world business problems using SQL.
 
-- LinkedIn: https://linkedin.com/in/YOUR_LINK
-- GitHub: https://github.com/YOUR_USERNAME
+### 📬 Connect with Me
+
+- **GitHub:** https://github.com/Gaurav-mali12
+- **LinkedIn:** https://www.linkedin.com/in/gaurav-mali-2003gm
 
 ---
 
-# ⭐ If you found this project useful, don't forget to give it a Star!
+# 🙏 Acknowledgements
+
+This project was created as part of my SQL learning journey to strengthen my understanding of data cleaning, dimensional modelling, and business analytics using SQL Server.
+
+---
+
+# ⭐ Support
+
+If you found this project helpful:
+
+⭐ Star this repository
+
+🍴 Fork this repository
+
+💼 Connect with me on LinkedIn
+
+📂 Explore my other GitHub projects
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
